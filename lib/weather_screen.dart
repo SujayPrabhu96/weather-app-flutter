@@ -14,6 +14,12 @@ class WeatherScreen extends StatelessWidget {
           )
         ),
         centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.refresh)
+          )
+        ],
       ),
     );
   }
