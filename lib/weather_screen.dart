@@ -3,9 +3,29 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:weather_app/additional_info_item.dart';
 import 'package:weather_app/hourly_forecast_item.dart';
+import 'package:http/http.dart' as http;
 
-class WeatherScreen extends StatelessWidget {
+class WeatherScreen extends StatefulWidget {
   const WeatherScreen({super.key});
+
+  @override
+  State<WeatherScreen> createState() => _WeatherScreenState();
+}
+
+class _WeatherScreenState extends State<WeatherScreen> {
+
+  @override
+  void initState() {
+    super.initState();
+    getCurrentWeatherData();
+  }
+
+  Future getCurrentWeatherData () async {
+    final res = await http.get(Uri.parse(
+      "https://api.openweathermap.org/data/2.5/weather?q=Kumta&appid=bf40eb10a9910d1c12698a9640f210e8"
+    ));
+    debugPrint(res.body);
+  }
 
   @override
   Widget build(BuildContext context) {
