@@ -25,7 +25,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
 
   Future<Map<String, dynamic>> getCurrentWeatherData () async {
     final String apiKey = dotenv.env['OPEN_WEATHER_API_KEY']!;
-    const String cityName = 'Kumta';
+    const String cityName = 'Bangalore';
 
     try {
       final res = await http.get(Uri.parse(

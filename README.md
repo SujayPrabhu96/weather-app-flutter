@@ -1,16 +1,14 @@
-# weather_app
+# Weather App
 
-A new Flutter project.
+- A new Flutter project that displays weather report of Bengaluru city
+- It makes use of Open Weather apis to get the weather information
 
-## Getting Started
+## Installation
 
-This project is a starting point for a Flutter application.
+- Create an account in OpenWeather and get the API key
+- Refer to envs present in `.env.example`
+- Run `flutter pub get` & `flutter run`
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshot
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Weather App](https://github.com/SujayPrabhu96/weather-app-flutter/raw/main/images/weather_app.png "Weather App")
