@@ -50,7 +50,7 @@ class WeatherScreen extends StatelessWidget {
                       child: Column(
                         children: [
                           Text(
-                            '300*F',
+                            '300K',
                             style: TextStyle(
                               fontSize: 32,
                               fontWeight: FontWeight.bold
@@ -93,11 +93,31 @@ class WeatherScreen extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  HourlyForecastItem(),
-                  HourlyForecastItem(),
-                  HourlyForecastItem(),
-                  HourlyForecastItem(),
-                  HourlyForecastItem(),
+                  HourlyForecastItem(
+                    time: '12:00',
+                    icon: Icons.cloud,
+                    temperature: '300*F',
+                  ),
+                  HourlyForecastItem(
+                    time: '01:00',
+                    icon: Icons.cloud,
+                    temperature: '300*F',
+                  ),
+                  HourlyForecastItem(
+                    time: '02:00',
+                    icon: Icons.cloud,
+                    temperature: '300*F',
+                  ),
+                  HourlyForecastItem(
+                    time: '03:00',
+                    icon: Icons.cloud,
+                    temperature: '300*F',
+                  ),
+                  HourlyForecastItem(
+                    time: '04:00',
+                    icon: Icons.cloud,
+                    temperature: '300*F',
+                  ),
                 ],
               ),
             ),
