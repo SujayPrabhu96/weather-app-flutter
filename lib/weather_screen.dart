@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:weather_app/additional_info_item.dart';
 import 'package:weather_app/hourly_forecast_item.dart';
 import 'package:http/http.dart' as http;
@@ -21,8 +22,11 @@ class _WeatherScreenState extends State<WeatherScreen> {
   }
 
   Future getCurrentWeatherData () async {
+    final String apiKey = dotenv.env['OPEN_WEATHER_API_KEY']!;
+    const String cityName = 'Kumta';
+
     final res = await http.get(Uri.parse(
-      "https://api.openweathermap.org/data/2.5/weather?q=Kumta&appid=bf40eb10a9910d1c12698a9640f210e8"
+      "https://api.openweathermap.org/data/2.5/weather?q=$cityName&appid=$apiKey"
     ));
     debugPrint(res.body);
   }
