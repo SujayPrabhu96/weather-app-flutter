@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:intl/intl.dart';
 import 'package:weather_app/additional_info_item.dart';
 import 'package:weather_app/hourly_forecast_item.dart';
 import 'package:http/http.dart' as http;
@@ -152,36 +153,23 @@ class _WeatherScreenState extends State<WeatherScreen> {
                 const SizedBox(
                   height: 16,
                 ),
-                const SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      HourlyForecastItem(
-                        time: '12:00',
-                        icon: Icons.cloud,
-                        temperature: '300*F',
-                      ),
-                      HourlyForecastItem(
-                        time: '01:00',
-                        icon: Icons.cloud,
-                        temperature: '300*F',
-                      ),
-                      HourlyForecastItem(
-                        time: '02:00',
-                        icon: Icons.cloud,
-                        temperature: '300*F',
-                      ),
-                      HourlyForecastItem(
-                        time: '03:00',
-                        icon: Icons.cloud,
-                        temperature: '300*F',
-                      ),
-                      HourlyForecastItem(
-                        time: '04:00',
-                        icon: Icons.cloud,
-                        temperature: '300*F',
-                      ),
-                    ],
+                SizedBox(
+                  height: 120,
+                  child: ListView.builder(
+                    itemCount: data['list'].length,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      final weatherInfo = data['list'][index];
+                      final time = DateTime.parse(weatherInfo['dt_txt'].toString());
+                      final temperature = weatherInfo['main']['temp'];
+                      final weather = weatherInfo['weather'][0]['main'];
+                  
+                      return HourlyForecastItem(
+                        time: DateFormat.j().format(time),
+                        icon: weather == 'Clouds' || weather == 'Rain' ? Icons.cloud : Icons.sunny,
+                        temperature: '$temperature K',
+                      );
+                    },
                   ),
                 ),
                 const SizedBox(
